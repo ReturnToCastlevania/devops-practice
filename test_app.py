@@ -29,6 +29,16 @@ class ServiceTest(unittest.TestCase):
             conn.close()
 
 
+    def test_missing(self):
+        conn = HTTPConnection('127.0.0.1', self.server.server_port, timeout=2)
+        try:
+            conn.request('GET', '/missing')
+            response = conn.getresponse()
+            self.assertEqual(response.status, 404)
+            self.assertEqual(json.loads(response.read()), {'error': 'not found'})
+        finally:
+            conn.close()
+
 if __name__ == '__main__':
     unittest.main()
 
