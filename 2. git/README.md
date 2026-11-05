@@ -117,3 +117,24 @@ FAILED (failures=1)
 ```
 * убрал сломанный тест
 
+
+
+# Pull request
+```bash
+git push origin 2-git-tasks
+```
+
+codeberg.org/pledx/devops-practice > new pr > `2-git-tasks` to `main` > it gave cli instructions
+
+```bash
+# получаем изменения из репозитория
+git fetch -u origin 2-git-tasks:2-git-tasks
+git switch 2-git-tasks
+
+# переключаемся на ветку main, мержим в нее изменения
+git switch main
+git merge --no-ff 2-git-tasks
+git push origin main
+```
+
+
