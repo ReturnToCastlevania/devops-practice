@@ -5,7 +5,7 @@ import os
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/healthz':
-            body, status = {'status': 'ok'}, 201
+            body, status = {'status': 'ok'}, 200
         elif self.path == '/':
             body, status = {'service': 'devops-lab', 'version': os.getenv('APP_VERSION', 'local')}, 200
         else:
